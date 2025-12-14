@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: FastApi-app-Demo
+  name: fastApi-app-Demo
   labels:
-    app: FastApi-app
+    app: fastApi-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: FastApi-app
+      app: fastApi-app
   template:
     metadata:
       labels:
-        app: FastApi-app
+        app: fastApi-app
     spec:
       containers:
-      - name: FastApi-app-container
-        image: FastApi-app:latest  # Use local image
+      - name: fastApi-app-container
+        image: fastApi-app:latest  # Use local image
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8501
@@ -25,11 +25,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: FastApi-app-service
+  name: fastApi-app-service
 spec:
   type: LoadBalancer
   selector:
-    app: FastApi-app
+    app: fastApi-app
   ports:
     - protocol: TCP
       port: 80
